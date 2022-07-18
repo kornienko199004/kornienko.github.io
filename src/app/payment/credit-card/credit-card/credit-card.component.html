@@ -1,0 +1,15 @@
+<form [formGroup]="form" class="form">
+  <div>
+    <label>
+      <h3>Number</h3>
+      <input type="text" formControlName="card-number" autocomplete="cc-number">
+    </label>
+  </div>
+  <div>
+    <label>
+      <h3>Cvv</h3>
+      <input type="password" formControlName="cvv" autocomplete="cc-csc">
+    </label>
+  </div>
+  <button (click)="submit()">Pay now</button>
+</form>

@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.form {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid black;
+
+  & div {
+    width: 100%;
+    display: flex;
+
+    & label {
+      width: 100%;
+    }
+  }
+
+  & input {
+    width: 100%;
+  }
+}
