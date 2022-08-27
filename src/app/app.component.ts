@@ -1,5 +1,5 @@
 import { trigger, transition, group, query, useAnimation, animate, style } from '@angular/animations';
-import { Component, HostBinding, HostListener } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 export const mockSkeletonAnimation = trigger('skeletonAnimation', [
@@ -21,7 +21,7 @@ export const mockSkeletonAnimation = trigger('skeletonAnimation', [
   styleUrls: ['./app.component.scss'],
   animations: [mockSkeletonAnimation]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @HostBinding('@skeletonAnimation') public state = 'start';
 
   @HostListener('@skeletonAnimation.done') public changeAnimationState(): void {
@@ -33,6 +33,12 @@ export class AppComponent {
   title = 'myApp';
 
   public constructor(private readonly cookieService: CookieService) {}
+
+  public ngOnInit(): void {
+    console.log('test', this.cookieService.get('test'));
+    console.log('path test', this.cookieService.get('path test'));
+    console.log('secure test', this.cookieService.get('secure test'));
+  }
   public setCookie(): void {
     this.cookieService.set('test', 'true');
   }
